@@ -60,10 +60,11 @@
       "empresa_ou_fonte": "Databricks - volume de vagas FDE",
       "dado_literal": "Feed oficial Greenhouse da Databricks: 115 vagas com 'Forward Deployed'/'FDE'/'Deployment Strategist' no titulo, entre 897 vagas abertas (contagem minha em 2026-11-20)",
       "resumo_pt": "Cerca de 1 em cada 8 vagas abertas da Databricks e de FDE, em EUA, Reino Unido, Europa, Japao, Coreia, India, Brasil etc. Contagem propria no feed oficial, nao numero publicado pela empresa.",
-      "url": "https://boards-api.greenhouse.io/v1/boards/databricks/jobs",
+      "url": "https://www.databricks.com/company/careers/open-positions",
       "conferido_em": "2026-11-20",
       "tipo": "vaga oficial (contagem propria)",
-      "remoto_ou_fora_eua": "Varios paises, incluindo Brasil e India remoto"
+      "remoto_ou_fora_eua": "Varios paises, incluindo Brasil e India remoto",
+      "url_feed": "https://boards-api.greenhouse.io/v1/boards/databricks/jobs"
     },
     {
       "empresa_ou_fonte": "Cohere - Forward Deployed Engineer, Inference (EUA)",
