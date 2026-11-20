@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qual metade você tem? · Engenheiro de campo de IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c10;--card:#16161e;--line:#272730;--tx:#e6e6e6;--mut:#a8a8b3;--amb:#FACC15;--sky:#38bdf8}
+@media (prefers-color-scheme: light){:root{--bg:#faf8f3;--card:#fff;--line:#e5e1d8;--tx:#1c1c22;--mut:#55555f;--amb:#a16207;--sky:#0369a1}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:28px 16px 60px}
+h1{font-family:Sora,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:.2em 0}
+h1 b{color:var(--amb)}.lead{color:var(--mut)}
+a{color:var(--sky)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.q h3{margin:0 0 10px;font-size:1rem}
+.q label{display:block;padding:8px 10px;border-radius:8px;cursor:pointer}
+.q label:hover{background:rgba(250,204,21,.08)}
+.q input{margin-right:8px;accent-color:var(--amb)}
+button{background:var(--amb);color:#111;border:0;border-radius:10px;padding:12px 20px;font-weight:700;font-size:1rem;cursor:pointer}
+#res{display:none;background:var(--card);border:1px solid var(--amb);border-radius:14px;padding:18px;margin-top:20px}
+.bar{height:12px;background:var(--line);border-radius:6px;overflow:hidden;margin:4px 0 12px}
+.bar i{display:block;height:100%;background:var(--amb)}
+.falta{color:#f87171;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<p><a href="../../guia/">← voltar ao guia</a></p>
+<h1>Qual <b>metade</b> você tem?</h1>
+<p class="lead">O engenheiro de campo de IA precisa de duas metades: o <b>construtor</b> (faz funcionar e prova) e a <b>confiança do cliente</b> (descobre o problema real e faz o time usar). Responda com sinceridade: 12 perguntas, 3 minutos. Nada sai do seu navegador.</p>
+<form id="f"></form>
+<p id="aviso" class="falta"></p>
+<button type="button" id="ver">Ver meu resultado</button>
+<section id="res" aria-live="polite"></section>
+</main>
+<script>
+const DADOS = {"versao": 1, "escala": "cada resposta vale de 0 a 3 pontos; cada metade tem 6 perguntas (0 a 18)", "empate_ate": 1, "metades": {"construtor": "Construtor: faz a coisa funcionar e prova que funciona", "confianca": "Confiança do cliente: descobre o problema real, combina o escopo e faz o time usar"}, "perguntas": [{"id": "c1", "metade": "construtor", "texto": "Quando preciso de um script para automatizar uma tarefa, eu…", "opcoes": ["não sei por onde começar", "peço para a IA e não sei se está certo", "peço para a IA (Claude Code ou Codex), leio e testo", "escrevo ou ajusto o código e testo com casos reais"]}, {"id": "c2", "metade": "construtor", "texto": "Ligar dois sistemas (ex.: planilha → sistema de vendas) por API:", "opcoes": ["nunca fiz", "já vi como se faz", "já fiz com ajuda", "faço com frequência"]}, {"id": "c3", "metade": "construtor", "texto": "Um agente de IA que decide o próximo passo e chama ferramentas sozinho:", "opcoes": ["não sei o que é", "sei o que é, nunca montei", "já montei um simples", "já coloquei um em uso real"]}, {"id": "c4", "metade": "construtor", "texto": "Para provar que uma automação funciona, eu…", "opcoes": ["mostro ela funcionando uma vez", "testo alguns exemplos na mão", "tenho uma lista de casos que rodo sempre", "tenho um eval com nota e comparo versões"]}, {"id": "c5", "metade": "construtor", "texto": "Quando algo que eu fiz quebra no uso real…", "opcoes": ["não sei achar o erro", "peço ajuda para alguém", "acho o erro com o registro (log) e a IA", "acho, corrijo e ponho um caso de teste para não voltar"]}, {"id": "c6", "metade": "construtor", "texto": "Dados bagunçados (datas e nomes em formatos misturados):", "opcoes": ["travo", "arrumo à mão", "arrumo com script ou com a IA", "escrevo uma regra que arruma sempre e testo"]}, {"id": "p1", "metade": "confianca", "texto": "O cliente diz: \"quero um chatbot\". Eu…", "opcoes": ["faço o chatbot", "pergunto o prazo e o preço", "pergunto o que ele quer resolver", "descubro o processo e o número que ele quer mexer antes de falar de solução"]}, {"id": "p2", "metade": "confianca", "texto": "Escrever o escopo de um projeto:", "opcoes": ["nunca escrevi", "escrevo uma lista de tarefas", "escrevo o que vai ficar pronto", "escrevo problema, número, o que é pronto e o que fica fora"]}, {"id": "p3", "metade": "confianca", "texto": "Apresentar para um diretor:", "opcoes": ["evito", "mostro a parte técnica", "mostro o resultado", "mostro o resultado em número, o próximo passo e respondo às objeções"]}, {"id": "p4", "metade": "confianca", "texto": "Quando o pedido cresce no meio do projeto…", "opcoes": ["aceito tudo", "aceito e reclamo depois", "negocio às vezes", "digo o que fica fora e por quê, sem perder o cliente"]}, {"id": "p5", "metade": "confianca", "texto": "Fazer a equipe do cliente usar o que eu entreguei:", "opcoes": ["entrego e pronto", "mando um manual", "treino a equipe", "treino, acompanho e meço o uso duas semanas depois"]}, {"id": "p6", "metade": "confianca", "texto": "Quando o cliente está bravo ou confuso…", "opcoes": ["fico na defensiva", "espero passar", "escuto e anoto", "escuto, repito nas palavras dele e combino o próximo passo"]}], "planos": {"construtor": {"titulo": "Sua metade mais fraca é a do CONSTRUTOR", "foco": "Você conversa bem; falta fazer funcionar e provar.", "passos": ["Trilha itens 1 a 4: Python com a IA escrevendo, APIs, agentes e EVALS (o principal).", "Rode o eval do kit (passo 5), quebre a automação de propósito e veja a nota cair.", "Troque a automação do eval por uma sua e chegue a uma nota que você defende.", "Só depois faça o projeto-prova (passo 6) com um cliente real."]}, "confianca": {"titulo": "Sua metade mais fraca é a da CONFIANÇA DO CLIENTE", "foco": "Você constrói; falta descobrir o problema certo e fazer o time usar.", "passos": ["Trilha itens 5 a 8: descoberta, escopo, demo para executivo e gestão de mudança.", "Faça 3 sessões com o cliente simulado (passo 3), em setores diferentes, e anote a nota de cada uma.", "Depois de cada sessão, escreva o escopo de 1 página (passo 4) e passe no validador.", "Treine a demo de 5 minutos para executivo com o roteiro da entrevista (passo 8)."]}, "empate": {"titulo": "Suas duas metades estão no mesmo nível", "foco": "O que falta é rodar o ciclo inteiro com um cliente de verdade.", "passos": ["Vá direto ao projeto-prova (passo 6): descoberta, escopo, construir, eval, demo e medir.", "Use o cliente simulado (passo 3) para ensaiar a primeira conversa.", "Ponha um eval (passo 5) em volta do que você construir antes da demo.", "Transforme o resultado em estudo de caso e treine a entrevista (passo 8)."]}}};
+const f = document.getElementById('f');
+DADOS.perguntas.forEach((p, i) => {
+  const d = document.createElement('div'); d.className = 'q';
+  d.innerHTML = '<h3>' + (i + 1) + '. ' + p.texto + '</h3>' +
+    p.opcoes.map((o, j) => '<label><input type="radio" name="' + p.id + '" value="' + j + '">' + o + '</label>').join('');
+  f.appendChild(d);
+});
+function pontuar(respostas) {
+  const pontos = {}; Object.keys(DADOS.metades).forEach(m => pontos[m] = 0);
+  const maximo = {}; Object.keys(DADOS.metades).forEach(m => maximo[m] = 0);
+  DADOS.perguntas.forEach((p, i) => { pontos[p.metade] += respostas[i]; maximo[p.metade] += 3; });
+  const dif = pontos.construtor - pontos.confianca;
+  const fraca = Math.abs(dif) <= DADOS.empate_ate ? 'empate' : (dif < 0 ? 'construtor' : 'confianca');
+  return {pontos, maximo, fraca, plano: DADOS.planos[fraca]};
+}
+document.getElementById('ver').onclick = () => {
+  const resp = DADOS.perguntas.map(p => { const e = f.querySelector('input[name="' + p.id + '"]:checked'); return e ? +e.value : null; });
+  const faltam = resp.filter(r => r === null).length;
+  document.getElementById('aviso').textContent = faltam ? 'Faltam ' + faltam + ' resposta(s).' : '';
+  if (faltam) return;
+  const r = pontuar(resp), out = document.getElementById('res');
+  out.innerHTML = Object.keys(DADOS.metades).map(m =>
+    '<div><b>' + DADOS.metades[m].split(':')[0] + '</b>: ' + r.pontos[m] + '/' + r.maximo[m] +
+    '<div class="bar"><i style="width:' + (100 * r.pontos[m] / r.maximo[m]) + '%"></i></div></div>').join('') +
+    '<h2>' + r.plano.titulo + '</h2><p>' + r.plano.foco + '</p><ol>' + r.plano.passos.map(s => '<li>' + s + '</li>').join('') + '</ol>' +
+    '<p>Os passos estão no kit: <a href="https://github.com/inematds/engenheiro-de-campo">github.com/inematds/engenheiro-de-campo</a></p>';
+  out.style.display = 'block'; out.scrollIntoView({behavior: 'smooth'});
+};
+</script>
+</body>
+</html>

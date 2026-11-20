@@ -1,0 +1,67 @@
+{
+  "versao": 1,
+  "escala": "cada resposta vale de 0 a 3 pontos; cada metade tem 6 perguntas (0 a 18)",
+  "empate_ate": 1,
+  "metades": {
+    "construtor": "Construtor: faz a coisa funcionar e prova que funciona",
+    "confianca": "Confiança do cliente: descobre o problema real, combina o escopo e faz o time usar"
+  },
+  "perguntas": [
+    {"id": "c1", "metade": "construtor", "texto": "Quando preciso de um script para automatizar uma tarefa, eu…",
+     "opcoes": ["não sei por onde começar", "peço para a IA e não sei se está certo", "peço para a IA (Claude Code ou Codex), leio e testo", "escrevo ou ajusto o código e testo com casos reais"]},
+    {"id": "c2", "metade": "construtor", "texto": "Ligar dois sistemas (ex.: planilha → sistema de vendas) por API:",
+     "opcoes": ["nunca fiz", "já vi como se faz", "já fiz com ajuda", "faço com frequência"]},
+    {"id": "c3", "metade": "construtor", "texto": "Um agente de IA que decide o próximo passo e chama ferramentas sozinho:",
+     "opcoes": ["não sei o que é", "sei o que é, nunca montei", "já montei um simples", "já coloquei um em uso real"]},
+    {"id": "c4", "metade": "construtor", "texto": "Para provar que uma automação funciona, eu…",
+     "opcoes": ["mostro ela funcionando uma vez", "testo alguns exemplos na mão", "tenho uma lista de casos que rodo sempre", "tenho um eval com nota e comparo versões"]},
+    {"id": "c5", "metade": "construtor", "texto": "Quando algo que eu fiz quebra no uso real…",
+     "opcoes": ["não sei achar o erro", "peço ajuda para alguém", "acho o erro com o registro (log) e a IA", "acho, corrijo e ponho um caso de teste para não voltar"]},
+    {"id": "c6", "metade": "construtor", "texto": "Dados bagunçados (datas e nomes em formatos misturados):",
+     "opcoes": ["travo", "arrumo à mão", "arrumo com script ou com a IA", "escrevo uma regra que arruma sempre e testo"]},
+    {"id": "p1", "metade": "confianca", "texto": "O cliente diz: \"quero um chatbot\". Eu…",
+     "opcoes": ["faço o chatbot", "pergunto o prazo e o preço", "pergunto o que ele quer resolver", "descubro o processo e o número que ele quer mexer antes de falar de solução"]},
+    {"id": "p2", "metade": "confianca", "texto": "Escrever o escopo de um projeto:",
+     "opcoes": ["nunca escrevi", "escrevo uma lista de tarefas", "escrevo o que vai ficar pronto", "escrevo problema, número, o que é pronto e o que fica fora"]},
+    {"id": "p3", "metade": "confianca", "texto": "Apresentar para um diretor:",
+     "opcoes": ["evito", "mostro a parte técnica", "mostro o resultado", "mostro o resultado em número, o próximo passo e respondo às objeções"]},
+    {"id": "p4", "metade": "confianca", "texto": "Quando o pedido cresce no meio do projeto…",
+     "opcoes": ["aceito tudo", "aceito e reclamo depois", "negocio às vezes", "digo o que fica fora e por quê, sem perder o cliente"]},
+    {"id": "p5", "metade": "confianca", "texto": "Fazer a equipe do cliente usar o que eu entreguei:",
+     "opcoes": ["entrego e pronto", "mando um manual", "treino a equipe", "treino, acompanho e meço o uso duas semanas depois"]},
+    {"id": "p6", "metade": "confianca", "texto": "Quando o cliente está bravo ou confuso…",
+     "opcoes": ["fico na defensiva", "espero passar", "escuto e anoto", "escuto, repito nas palavras dele e combino o próximo passo"]}
+  ],
+  "planos": {
+    "construtor": {
+      "titulo": "Sua metade mais fraca é a do CONSTRUTOR",
+      "foco": "Você conversa bem; falta fazer funcionar e provar.",
+      "passos": [
+        "Trilha itens 1 a 4: Python com a IA escrevendo, APIs, agentes e EVALS (o principal).",
+        "Rode o eval do kit (passo 5), quebre a automação de propósito e veja a nota cair.",
+        "Troque a automação do eval por uma sua e chegue a uma nota que você defende.",
+        "Só depois faça o projeto-prova (passo 6) com um cliente real."
+      ]
+    },
+    "confianca": {
+      "titulo": "Sua metade mais fraca é a da CONFIANÇA DO CLIENTE",
+      "foco": "Você constrói; falta descobrir o problema certo e fazer o time usar.",
+      "passos": [
+        "Trilha itens 5 a 8: descoberta, escopo, demo para executivo e gestão de mudança.",
+        "Faça 3 sessões com o cliente simulado (passo 3), em setores diferentes, e anote a nota de cada uma.",
+        "Depois de cada sessão, escreva o escopo de 1 página (passo 4) e passe no validador.",
+        "Treine a demo de 5 minutos para executivo com o roteiro da entrevista (passo 8)."
+      ]
+    },
+    "empate": {
+      "titulo": "Suas duas metades estão no mesmo nível",
+      "foco": "O que falta é rodar o ciclo inteiro com um cliente de verdade.",
+      "passos": [
+        "Vá direto ao projeto-prova (passo 6): descoberta, escopo, construir, eval, demo e medir.",
+        "Use o cliente simulado (passo 3) para ensaiar a primeira conversa.",
+        "Ponha um eval (passo 5) em volta do que você construir antes da demo.",
+        "Transforme o resultado em estudo de caso e treine a entrevista (passo 8)."
+      ]
+    }
+  }
+}
