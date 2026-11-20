@@ -1,6 +1,6 @@
 {
   "nome": "triagem de e-mails de suporte",
-  "descricao": "Cada caso é um e-mail real-ish de cliente e a fila certa para ele. Categorias: cobranca, acesso, entrega, cancelamento, outro.",
+  "descricao": "Cada caso é um e-mail de exemplo, escrito como os que um suporte recebe, e a fila certa para ele. Categorias: cobranca, acesso, entrega, cancelamento, outro.",
   "categorias": ["cobranca", "acesso", "entrega", "cancelamento", "outro"],
   "casos": [
     {"id": 1, "entrada": "Fui cobrado duas vezes no cartão este mês, podem estornar?", "esperado": "cobranca"},

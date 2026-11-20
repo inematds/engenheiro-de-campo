@@ -164,7 +164,7 @@
     <div>
       <span class="chip">A new career · official openings verified · free kit</span>
       <h1>New career: <span class="amb">AI forward deployed engineer</span></h1>
-      <p class="lead">Companies buy AI faster than they can make it work. Finding the real problem, making AI work, and proving the results inside a company is now a profession, and the biggest AI companies are hiring. Here you’ll learn what the role is and get ready, step by step, with a free kit.</p>
+      <p class="lead">Companies are buying AI faster than they can make it work. The person who joins a company, finds the real problem, makes AI work, and proves it with numbers has turned it into a profession—and the biggest AI companies are already hiring: OpenAI’s official job listing shows $185K to $300K a year. Here, you’ll learn what the role is and get ready step by step with a free kit.</p>
       <div class="cta">
         <a class="btn" href="#oque">What this role is</a>
         <a class="btn ghost" href="#formacao">How to get ready</a>
@@ -245,7 +245,7 @@
       <tr><td>Monday</td><td><strong>Discovery</strong>: sit with the operations team, watch the real work, and ask lots of questions.</td><td>The problem in the customer’s own words.</td></tr>
       <tr><td>Tuesday</td><td><strong>Scope</strong>: which problem, which number should change, and what “done” means.</td><td>An approved one-page scope.</td></tr>
       <tr><td>Wednesday</td><td><strong>Build</strong>: connect the agent to the customer’s systems and data.</td><td>The first version running on real data.</td></tr>
-      <tr><td>Thursday</td><td><strong>Test</strong>: write the eval and run it on real cases.</td><td>A score, a list of failures, and version 2.</td></tr>
+      <tr><td>Thursday</td><td><strong>Test</strong>: writes the eval (the list of cases with the right answer, which gives it a score) and runs it with real client cases.</td><td>A score, a list of failures, and version 2.</td></tr>
       <tr><td>Friday</td><td><strong>Demo</strong> for decision-makers + notes for the AI company’s product team: where the model failed and what customers keep asking for.</td><td>Approval, the next step, and what becomes a reusable recipe.</td></tr>
     </tbody>
   </table></div>
@@ -255,8 +255,8 @@
   <span class="chip">The training</span>
   <h2>How to get ready, <span class="amb">step by step</span>, with the kit</h2>
   <p class="sub">Each step is part of the free kit on GitHub. You don’t have to do everything the same way: spend more time on the half the test shows is weaker.</p>
-  <div class="step"><div class="b">1</div><div><h3>Find out which half you have <span class="tag">test</span></h3><p>12 honest questions. Your results show your score for each half and a study plan for the weaker one. You can take it in your browser or in the terminal.</p><p><a href="../../kit/1-teste-metade/teste-metade.html">Take the test now (in Portuguese)</a></p></div></div>
-  <div class="step"><div class="b">2</div><div><h3>Follow the learning path <span class="tag">learning path</span></h3><p>Eight topics, each with a hands-on exercise: Python with AI writing the code, connecting systems (APIs), agents (AI that decides what to do next and uses tools), <strong>eval</strong>, discovery, scoping, presenting to leadership, and getting the team to use the tool. The most important topic is eval.</p></div></div>
+  <div class="step"><div class="b">1</div><div><h3>Find out which half you have <span class="tag">test</span></h3><p>12 honest questions. Your results show your score for each half and a study plan for the weaker one. You can do it in your browser in 3 minutes.</p><p><a href="../../kit/1-teste-metade/teste-metade.html">Take the test now (in Portuguese)</a></p></div></div>
+  <div class="step"><div class="b">2</div><div><h3>Follow the learning path <span class="tag">learning path</span></h3><p>Eight topics, each with a hands-on exercise: Python with AI writing the code, connecting systems (APIs), agents (AI that decides what to do next and uses tools), <strong>eval</strong> (the test that proves it with a score), discovery, scoping, presenting to leadership, and getting the team to use the tool. The most important topic is eval.</p></div></div>
   <div class="step"><div class="b">3</div><div><h3>Practice discovery with a simulated customer <span class="tag">ready-to-use prompts</span></h3><p>Paste a request into AI and it becomes a difficult customer (a shipping company, clinic, store, or accounting firm) who asks for the trendy solution and hides the real problem. You’ll only find it if you ask good questions. At the end, it scores your conversation and tells you what you missed.</p></div></div>
   <div class="step"><div class="b">4</div><div><h3>Write a one-page scope <span class="tag">template + checker</span></h3><p>Four parts: the problem in the customer’s words, <strong>the one number</strong> that should change, what “done” means, and what’s out of scope. A checker rejects a scope without a number. If you can’t name the number, you don’t have a project yet.</p></div></div>
   <div class="step"><div class="b">5</div><div><h3>Learn how to prove it: eval <span class="tag">runs on your computer</span></h3><p>A demo shows that something worked once. An eval is a list of real cases with the right answers. It gives a score, shows every error, and compares versions. The kit includes a complete example, explained in the <a href="#prova">proof below</a>, and shows how to swap in your automation.</p></div></div>
@@ -272,7 +272,7 @@
   <p class="sub">The kit includes a support email sorter that puts each message into one of 5 queues (billing, access, delivery, cancellation, other). We ran the kit’s eval on it for real on Nov 20, 2026:</p>
   <div class="prova">
     <ol class="tl">
-      <li><b>Version 1 passed the demo.</b><br><span class="mut">The obvious examples worked. On the eval with 30 real emails, it got 18 right. It missed “I CAN’T LOG IN,” “I canceled but I’m still being charged,” and 10 others.</span></li>
+      <li><b>Version 1 passed the demo.</b><br><span class="mut">The obvious examples worked. On an eval with 30 sample emails, written like the ones a support team receives, it got 18 right. It missed “I CAN’T LOG IN,” “I canceled but I’m still being charged,” and 10 others.</span></li>
       <li><b>We fixed each failure and got version 2.</b><br><span class="mut">30 out of 30. The eval showed 12 cases fixed, none broken.</span></li>
       <li><b>Then we ran 10 new emails that hadn’t been used to make fixes.</b><br><span class="mut">Version 2 got only 4 right, the same as version 1. It memorized the cases instead of learning the rule.</span></li>
     </ol>
@@ -342,9 +342,9 @@ Don’t install or change anything on my computer without showing me first and w
   <div class="grid g2">
     <div class="card"><h3>Do I need to know how to code?</h3><p>You need to work with code, but you don’t have to type everything by hand: AI writes it, you read it, ask for the right change, and prove it with a test. If this is your weaker half, the test will show you, and the plan starts there.</p></div>
     <div class="card"><h3>Is this role just a passing fad?</h3><p>No one knows what will happen to a job title. But the work (finding the real problem, building, and proving it) takes more than one skill: it’s the whole cycle, and companies that bought AI are missing it.</p></div>
-    <div class="card"><h3>How much does the kit cost?</h3><p>Nothing. The kit and this guide are free. To practice, use the AI you already have (Claude Code or Codex). The eval example runs on your computer, offline and at no cost.</p></div>
+    <div class="card"><h3>How much does the kit cost?</h3><p>Nothing. The kit and this guide are free. The sample eval runs on your computer, offline and at no cost. To practice, you can use the simulated client and interview training by pasting the requests into regular ChatGPT or Claude. Claude Code and Codex (the AIs that work with files on your computer) require their own subscriptions.</p></div>
     <div class="card"><h3>What if I don’t want to work for a company abroad?</h3><p>The same work exists locally under other titles, and you can start your own business serving companies in your area.</p></div>
-    <div class="card"><h3>How long does it take?</h3><p>The test takes 3 minutes. The learning path and a complete proof project usually take 1 to 2 months alongside your job, depending on how much you need to learn in your weaker half.</p></div>
+    <div class="card"><h3>How long does it take?</h3><p>The test takes 3 minutes. In our estimate, the learning path and a complete proof project take 1 to 2 months alongside your job, depending on how much work remains in your weaker half.</p></div>
     <div class="card"><h3>Do I need a customer to get started?</h3><p>Not to practice: the simulated customer and the kit’s eval are enough. For the proof project, yes, but it could be your own team, a friend, or a local business.</p></div>
   </div>
   <p class="fonte" style="margin-top:22px">And you: which of the two halves do you already have, the builder or the person the client trusts? The kit is free at inema.club, right on the web.</p>

@@ -53,7 +53,10 @@ def perguntar(dados):
         for j, o in enumerate(p["opcoes"]):
             print(f"   {j}) {o}")
         while True:
-            r = input("   sua resposta (0-3): ").strip()
+            try:
+                r = input("   sua resposta (0-3): ").strip()
+            except EOFError:
+                raise SystemExit("\nentrada encerrada antes do fim; para rodar sem perguntas, use --respostas")
             if r in {"0", "1", "2", "3"}:
                 respostas.append(int(r))
                 break
