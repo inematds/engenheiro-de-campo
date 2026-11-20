@@ -124,7 +124,7 @@ tests/                  pruebas automáticas
 python3 -m unittest discover -s tests -v
 ```
 
-26 pruebas cubren: la prueba mitad (12 preguntas, 6 por mitad, los 3 resultados posibles, empate dentro del margen, respuestas no válidas, la página con las mismas preguntas del JSON), el validador de alcance (ejemplo aprobado, ejemplo y modelo reprobados, sin número, un solo número, sin comillas, sección faltante, títulos en EN/ES, códigos de salida) y el eval (casos bien formados, las puntuaciones medidas 18/30, 30/30 y 4/10, la comparación de 12 corregidos y 0 rotos, una automatización que falla cuenta como error, código de salida de `--minimo`, el modelo del agente no se ejecuta sin configurarlo), además de un bloqueo contra cifras de investigaciones de terceros en los textos.
+28 pruebas cubren: la prueba mitad (12 preguntas, 6 por mitad, los 3 resultados posibles, empate dentro del margen, respuestas no válidas, la página con las mismas preguntas del JSON), el validador de alcance (ejemplo aprobado, ejemplo y modelo reprobados, sin número, un solo número, sin comillas, sección faltante, títulos en EN/ES, códigos de salida) y el eval (casos bien formados, las puntuaciones medidas 18/30, 30/30 y 4/10, la comparación de 12 corregidos y 0 rotos, una automatización que falla cuenta como error, código de salida de `--minimo`, el modelo del agente no se ejecuta sin configurarlo), y la política de cifras: solo el rango de la vacante oficial de OpenAI, igual al registrado en `fontes/`, y ningún porcentaje sin fuente en los textos.
 
 ## Licencia
 

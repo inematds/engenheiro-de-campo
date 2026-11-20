@@ -9,7 +9,7 @@ Metade do construtor = itens 1 a 4. Metade da confiança do cliente = itens 5 a 
 
 ## 1. Python com a IA escrevendo
 
-**Por quê:** quase toda vaga pede Python. Mas ninguém espera que você digite tudo à mão: o Claude Code e o Codex escrevem; você precisa **ler, pedir a mudança certa e testar**.
+**Por quê:** as vagas pedem Python. Mas ninguém espera que você digite tudo à mão: o Claude Code e o Codex escrevem; você precisa **ler, pedir a mudança certa e testar**.
 
 **Prática:** peça ao Claude Code ou ao Codex um script que lê uma planilha CSV de vendas e diz o total por mês. Depois:
 - quebre de propósito (coloque uma data em formato errado no CSV) e veja o erro;

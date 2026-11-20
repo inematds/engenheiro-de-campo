@@ -217,16 +217,34 @@ class Eval(unittest.TestCase):
 
 
 class SemNumerosProibidos(unittest.TestCase):
-    """Política do kit: nada de estatística de levantamento de terceiros."""
+    """Política do kit: só número com fonte oficial registrada em fontes/ (lista do que é permitido)."""
 
-    def test_textos_sem_porcentagem_de_levantamento(self):
-        proibidos = [r"\b95\s?%", r"\b10x\b", r"\b200 vagas", r"\b24 empresas", r"325"]
-        alvos = [p for p in RAIZ.rglob("*") if p.suffix in {".md", ".html", ".json"}
-                 and ".git" not in p.parts and "tests" not in p.parts]
-        for arq in alvos:
-            txt = arq.read_text(encoding="utf-8", errors="ignore")
-            for pad in proibidos:
-                self.assertIsNone(re.search(pad, txt), f"{arq.relative_to(RAIZ)} tem {pad}")
+    DINHEIRO_OK = {"$185K", "$300K", "US$ 185", "US$ 300"}   # fontes/vaga-openai.json
+    PORCENTO_OK = {"90%"}                                     # nota mínima de exemplo do runner (LEIA.md)
+
+    def textos(self):
+        for p in RAIZ.rglob("*"):
+            if p.suffix in {".md", ".html"} and ".git" not in p.parts and "tests" not in p.parts:
+                txt = p.read_text(encoding="utf-8", errors="ignore")
+                # CSS/JS e atributos style têm % de layout, não dado
+                txt = re.sub(r"<style.*?</style>|<script.*?</script>|style=\"[^\"]*\"", "", txt, flags=re.S)
+                yield p, txt
+
+    def test_dinheiro_so_da_vaga_oficial(self):
+        for arq, txt in self.textos():
+            for m in re.findall(r"US\$ ?\d+|\$\d+K?", txt):
+                self.assertIn(m, self.DINHEIRO_OK, f"{arq.relative_to(RAIZ)}: valor sem fonte {m}")
+
+    def test_sem_porcentagem_em_texto(self):
+        for arq, txt in self.textos():
+            for m in re.findall(r"\d+(?:[.,]\d+)?\s?%", txt):
+                self.assertIn(m, self.PORCENTO_OK, f"{arq.relative_to(RAIZ)}: porcentagem sem fonte {m}")
+
+    def test_faixa_bate_com_a_fonte(self):
+        fonte = json.loads((RAIZ / "fontes" / "vaga-openai.json").read_text(encoding="utf-8"))
+        self.assertTrue(fonte["conferido"])
+        guia = (RAIZ / "guia" / "index.html").read_text(encoding="utf-8")
+        self.assertIn(fonte["faixa_salarial_texto_literal"], guia)
 
 
 if __name__ == "__main__":

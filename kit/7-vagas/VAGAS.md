@@ -39,7 +39,7 @@ Leia a vaga inteira antes de aplicar: muitas pedem viagem frequente ao cliente e
 
 ## Caminho no Brasil
 
-1. **Remoto para fora.** Algumas vagas aceitam remoto ou têm escritórios na América Latina. Inglês de conversa com cliente é obrigatório: treine a entrevista (passo 8) em inglês.
+1. **Remoto para fora.** Muitas vagas exigem estar no país da empresa. Procure as que dizem "remote" e confira, em cada uma, de quais países aceitam candidatos. Inglês de conversa com cliente é obrigatório: treine a entrevista (passo 8) em inglês.
 2. **Empresas daqui com outro nome.** Consultorias, integradoras, empresas de software e bancos já contratam o mesmo trabalho como "consultor de IA", "engenheiro de soluções", "especialista em IA aplicada" ou "analista de automação". Busque pelo que a vaga faz.
 3. **O mesmo trabalho como negócio próprio.** Uma consultoria ou agência de automação para pequenas empresas é um time de engenheiros de campo: você entra no cliente, descobre o problema real, constrói, prova e faz usar. O projeto-prova (passo 6) é o seu primeiro cliente e o estudo de caso é o seu material de venda.
 

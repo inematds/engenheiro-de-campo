@@ -124,7 +124,7 @@ tests/                   automated tests
 python3 -m unittest discover -s tests -v
 ```
 
-26 tests cover: the which-half test (12 questions, 6 per half, all 3 possible results, tie within margin, invalid answers, page with same questions as JSON), the scope validator (approved example, rejected example and template, no number, only one number, no quotes, missing section, EN/ES headings, exit codes), and the eval (well-formed cases, measured scores 18/30, 30/30, and 4/10, comparison with 12 fixed and 0 broken, automation that crashes counts as a failure, `--minimo` exit code, agent model does not run unless configured), plus a guard against numbers from third-party surveys in the text.
+28 tests cover: the which-half test (12 questions, 6 per half, all 3 possible results, tie within margin, invalid answers, page with same questions as JSON), the scope validator (approved example, rejected example and template, no number, only one number, no quotes, missing section, EN/ES headings, exit codes), and the eval (well-formed cases, measured scores 18/30, 30/30, and 4/10, comparison with 12 fixed and 0 broken, automation that crashes counts as a failure, `--minimo` exit code, agent model does not run unless configured), and the numbers policy: only the official OpenAI listing range, matching the one recorded in `fontes/`, and no unsourced percentages in the text.
 
 ## License
 

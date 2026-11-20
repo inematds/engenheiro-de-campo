@@ -124,7 +124,7 @@ tests/                  testes automáticos
 python3 -m unittest discover -s tests -v
 ```
 
-26 testes cobrem: o teste-metade (12 perguntas, 6 por metade, os 3 resultados alcançáveis, empate dentro da margem, respostas inválidas, a página com as mesmas perguntas do JSON), o conferidor de escopo (exemplo aprovado, exemplo e modelo reprovados, sem número, um número só, sem aspas, seção faltando, títulos em EN/ES, códigos de saída) e o eval (casos bem formados, as notas medidas 18/30, 30/30 e 4/10, a comparação 12 consertados e 0 quebrados, automação que explode conta como falha, código de saída do `--minimo`, o modelo do agente não roda sem configurar), além de uma trava contra números de levantamentos de terceiros nos textos.
+28 testes cobrem: o teste-metade (12 perguntas, 6 por metade, os 3 resultados alcançáveis, empate dentro da margem, respostas inválidas, a página com as mesmas perguntas do JSON), o conferidor de escopo (exemplo aprovado, exemplo e modelo reprovados, sem número, um número só, sem aspas, seção faltando, títulos em EN/ES, códigos de saída) e o eval (casos bem formados, as notas medidas 18/30, 30/30 e 4/10, a comparação 12 consertados e 0 quebrados, automação que explode conta como falha, código de saída do `--minimo`, o modelo do agente não roda sem configurar) e a política de números: só a faixa da vaga oficial da OpenAI, igual à registrada em `fontes/`, e nenhuma porcentagem sem fonte nos textos.
 
 ## Licença
 
