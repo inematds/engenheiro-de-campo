@@ -23,3 +23,5 @@ When I correct you, or you catch yourself making a mistake: before continuing, a
 ## Lessons
 
 - (vazio)
+
+- 2026-11-20: crítica do Nei — no teste da metade a certa estava sempre na última linha e era a mais completa. Opções agora com pontos próprios, ordem misturada (e embaralhada na página a cada abertura), tamanhos parecidos e perguntas sobre o que a pessoa fez "da última vez"; teste `test_a_melhor_opcao_nao_se_denuncia` barra a volta.

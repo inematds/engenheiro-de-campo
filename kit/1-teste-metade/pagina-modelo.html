@@ -37,17 +37,19 @@ button{background:var(--amb);color:#111;border:0;border-radius:10px;padding:12px
 </main>
 <script>
 const DADOS = /*PERGUNTAS*/null;
+// a ordem das opções muda a cada vez que a página abre: a melhor não fica sempre no mesmo lugar
+function embaralhar(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 const f = document.getElementById('f');
 DADOS.perguntas.forEach((p, i) => {
   const d = document.createElement('div'); d.className = 'q';
   d.innerHTML = '<h3>' + (i + 1) + '. ' + p.texto + '</h3>' +
-    p.opcoes.map((o, j) => '<label><input type="radio" name="' + p.id + '" value="' + j + '">' + o + '</label>').join('');
+    embaralhar(p.opcoes.map((o, j) => [o, j])).map(([o, j]) => '<label><input type="radio" name="' + p.id + '" value="' + j + '">' + o.texto + '</label>').join('');
   f.appendChild(d);
 });
 function pontuar(respostas) {
   const pontos = {}; Object.keys(DADOS.metades).forEach(m => pontos[m] = 0);
   const maximo = {}; Object.keys(DADOS.metades).forEach(m => maximo[m] = 0);
-  DADOS.perguntas.forEach((p, i) => { pontos[p.metade] += respostas[i]; maximo[p.metade] += 3; });
+  DADOS.perguntas.forEach((p, i) => { pontos[p.metade] += p.opcoes[respostas[i]].pontos; maximo[p.metade] += Math.max(...p.opcoes.map(o => o.pontos)); });
   const dif = pontos.construtor - pontos.confianca;
   const fraca = Math.abs(dif) <= DADOS.empate_ate ? 'empate' : (dif < 0 ? 'construtor' : 'confianca');
   return {pontos, maximo, fraca, plano: DADOS.planos[fraca]};

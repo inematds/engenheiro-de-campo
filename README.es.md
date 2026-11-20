@@ -73,7 +73,7 @@ cd engenheiro-de-campo
 ### Comandos
 
 ```bash
-# 1. prueba "qué mitad tienes" (interactiva o con las 12 respuestas de 0 a 3)
+# 1. prueba "qué mitad tienes" (interactiva o con el número de la opción elegida en cada una de las 12 preguntas)
 python3 kit/1-teste-metade/teste_metade.py
 python3 kit/1-teste-metade/teste_metade.py --respostas 3,3,2,3,2,3,1,1,2,0,1,2
 #    volver a generar la página después de cambiar perguntas.json

@@ -73,7 +73,7 @@ cd engenheiro-de-campo
 ### Commands
 
 ```bash
-# 1. "which half do you have" test (interactive, or with the 12 answers from 0 to 3)
+# 1. "which half do you have" test (interactive, or with the number of the option you picked in each of the 12 questions)
 python3 kit/1-teste-metade/teste_metade.py
 python3 kit/1-teste-metade/teste_metade.py --respostas 3,3,2,3,2,3,1,1,2,0,1,2
 #    regenerate the page after changing perguntas.json

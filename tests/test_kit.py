@@ -35,8 +35,13 @@ class TesteMetade(unittest.TestCase):
         self.dados = tm.carregar()
         self.ordem = [p["metade"] for p in self.dados["perguntas"]]
 
+    def indice(self, pergunta, pontos):
+        """número da opção (como aparece) que vale esses pontos"""
+        return [o["pontos"] for o in pergunta["opcoes"]].index(pontos)
+
     def respostas(self, construtor, confianca):
-        return [construtor if m == "construtor" else confianca for m in self.ordem]
+        return [self.indice(p, construtor if p["metade"] == "construtor" else confianca)
+                for p in self.dados["perguntas"]]
 
     def test_doze_perguntas_seis_por_metade_quatro_opcoes(self):
         self.assertEqual(len(self.dados["perguntas"]), 12)
@@ -59,9 +64,11 @@ class TesteMetade(unittest.TestCase):
         r = tm.pontuar(self.dados, self.respostas(2, 2))
         self.assertEqual(r["mais_fraca"], "empate")
         resp = self.respostas(2, 2)
-        resp[self.ordem.index("construtor")] = 3  # diferença de 1 ponto ainda é empate
+        perg = self.dados["perguntas"]
+        i = self.ordem.index("construtor")
+        resp[i] = self.indice(perg[i], 3)  # diferença de 1 ponto ainda é empate
         self.assertEqual(tm.pontuar(self.dados, resp)["mais_fraca"], "empate")
-        resp[self.ordem.index("construtor") + 1] = 3  # diferença de 2 já decide
+        resp[i + 1] = self.indice(perg[i + 1], 3)  # diferença de 2 já decide
         self.assertEqual(tm.pontuar(self.dados, resp)["mais_fraca"], "confianca")
 
     def test_todos_os_resultados_sao_alcancaveis(self):
@@ -69,14 +76,32 @@ class TesteMetade(unittest.TestCase):
         for c, p in itertools.product(range(19), repeat=2):
             resp = []
             restc, restp = c, p
-            for m in self.ordem:
-                if m == "construtor":
+            for q in self.dados["perguntas"]:
+                if q["metade"] == "construtor":
                     v = min(3, restc); restc -= v
                 else:
                     v = min(3, restp); restp -= v
-                resp.append(v)
+                resp.append(self.indice(q, v))
             vistos.add(tm.pontuar(self.dados, resp)["mais_fraca"])
         self.assertEqual(vistos, set(self.dados["planos"]))
+
+    def test_a_melhor_opcao_nao_se_denuncia(self):
+        """Crítica do Nei (20/11/2026): a certa estava sempre na última linha e era a mais completa."""
+        perg = self.dados["perguntas"]
+        for p in perg:
+            self.assertEqual(sorted(o["pontos"] for o in p["opcoes"]), [0, 1, 2, 3], p["id"])
+            tam = [len(o["texto"]) for o in p["opcoes"]]
+            self.assertLessEqual(max(tam) / min(tam), 1.7, f"{p['id']}: opções com tamanhos muito diferentes")
+        posicoes = [[o["pontos"] for o in p["opcoes"]].index(3) for p in perg]
+        for k in range(4):
+            self.assertGreaterEqual(posicoes.count(k), 2, f"a melhor opção cai na posição {k} poucas vezes")
+        longa = sum(max(p["opcoes"], key=lambda o: len(o["texto"]))["pontos"] == 3 for p in perg)
+        self.assertLessEqual(longa, 4, "a melhor opção é a mais longa em muitas perguntas")
+
+    def test_pagina_embaralha_as_opcoes(self):
+        modelo = (KIT / "1-teste-metade" / "pagina-modelo.html").read_text(encoding="utf-8")
+        self.assertIn("embaralhar(p.opcoes", modelo)
+        self.assertIn("p.opcoes[respostas[i]].pontos", modelo)
 
     def test_respostas_invalidas(self):
         with self.assertRaises(ValueError):
