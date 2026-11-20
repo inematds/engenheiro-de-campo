@@ -59,8 +59,8 @@
   .tgl:hover{border-color:var(--amb)}
   .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora;border:0;cursor:pointer;font-size:1rem}
   .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
-  @media(max-width:1360px){nav .links a.opt{display:none}}
-  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:1760px){nav .links a.opt{display:none}}
+  @media(max-width:1220px){nav .links a.sec{display:none}}
   @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
   .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
   .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
@@ -104,6 +104,9 @@
   .stat b{display:block;font:800 clamp(1.7rem,4vw,2.4rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
   body.light .stat b{color:var(--txt)}
   .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .stat .emp{display:block;font:600 .78rem/1.3 Sora,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.45em}
+  .salarios .stat b{font-size:clamp(1.45rem,2.4vw,1.9rem)}
+  .stat.imp{border-style:dashed} .stat.imp b{color:var(--txt)}
   .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
   .metades{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
   .metades .mais{display:flex;align-items:center;justify-content:center;font:800 2rem Sora,sans-serif;color:var(--amb)}
@@ -148,6 +151,7 @@
   <div class="links">
     <a class="sec" href="#oque">What it is</a>
     <a class="sec opt" href="#potencial">The potential</a>
+    <a class="sec" href="#mercado">The market</a>
     <a class="sec opt" href="#semana">The week</a>
     <a class="sec" href="#formacao">The training</a>
     <a class="sec" href="#vagas">Open roles</a>
@@ -164,7 +168,7 @@
     <div>
       <span class="chip">A new career · official openings verified · free kit</span>
       <h1>New career: <span class="amb">AI forward deployed engineer</span></h1>
-      <p class="lead">Companies are buying AI faster than they can make it work. The person who joins a company, finds the real problem, makes AI work, and proves it with numbers has turned it into a profession—and the biggest AI companies are already hiring: OpenAI’s official job listing shows $185K to $300K a year. Here, you’ll learn what the role is and get ready step by step with a free kit.</p>
+      <p class="lead">Companies are buying AI faster than they can make it work. The person who joins a company, finds the real problem, makes AI work, and proves it with numbers has turned it into a profession—and the biggest AI companies are already hiring: official listings publish US$ 135K to US$ 415K a year, and there are already open roles based in Brazil. Here, you’ll learn what the role is and get ready step by step with a free kit.</p>
       <div class="cta">
         <a class="btn" href="#oque">What this role is</a>
         <a class="btn ghost" href="#formacao">How to get ready</a>
@@ -209,9 +213,9 @@
 <section id="potencial"><div class="wrap">
   <span class="chip">The potential</span>
   <h2>The biggest AI companies <span class="amb">are already hiring</span></h2>
-  <p class="sub">This isn’t a social media trend: these are open roles with the job title in official company listings. Verified on Nov 20, 2026.</p>
+  <p class="sub">This isn’t a social media trend: these are open roles with the profession in the title, listed on companies’ official job boards. We checked them on Nov 20, 2026. How much they pay and where openings are available, including in Brazil, is just below in Market Data.</p>
   <div class="stats">
-    <div class="stat"><b>$185K – $300K</b><span>the salary range listed for OpenAI’s official <em>Forward Deployed Engineer</em> role in San Francisco, in dollars per year, plus equity.</span></div>
+    <div class="stat"><b>Build a team from scratch</b><span>Anthropic’s job listing for a manager of forward deployed engineers calls the person who joins the “founding leader” of a team that will shape how companies adopt AI.</span></div>
     <div class="stat"><b>OpenAI and Anthropic</b><span>both had several roles with “Forward Deployed” in the title, across multiple cities, on the day we checked.</span></div>
     <div class="stat"><b>Former founders welcome</b><span>Anthropic’s listing says former technical founders are also encouraged to apply. This isn’t only for people with a straight-line career.</span></div>
   </div>
@@ -219,7 +223,46 @@
     <div class="card"><h3>📄 What Anthropic’s listing asks for</h3><blockquote>"Deliver technical artifacts for customers like MCP servers, sub-agents, and agent skills that will be used in production workflows."</blockquote><p style="margin-top:.6em">In plain English: deliver MCP servers (the standard way to give AI tools), sub-agents, and skills (recipes the AI follows) that go into real use. It’s the same kind of work many people already do in Claude Code, but at a company, for real.</p><blockquote>"Identify and codify repeatable deployment patterns"</blockquote><p style="margin-top:.6em">Take what worked once and turn it into a repeatable recipe.</p></div>
     <div class="card"><h3>🎯 What a senior role expects</h3><blockquote>"walk into a discovery conversation with only a business problem and leave with a defensible technical strategy"</blockquote><p style="margin-top:.6em">Arrive with only a business problem and leave with a technical strategy you can defend. That’s exactly what the interview tests, and what the kit helps you practice.</p><p><a href="https://job-boards.greenhouse.io/anthropic/jobs/5449229008" target="_blank" rel="noopener">View the senior role</a> · <a href="https://job-boards.greenhouse.io/anthropic/jobs/5391021008" target="_blank" rel="noopener">view the FDE role</a> · <a href="https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688" target="_blank" rel="noopener">view OpenAI’s role</a></p></div>
   </div>
-  <p class="fonte">The figure above comes from OpenAI’s San Francisco listing (“$185K – $300K • Offers Equity”), verified on Nov 20, 2026; OpenAI listings outside the United States don’t show a salary range. Listings change, so always check the official page. Records are in <a href="https://github.com/inematds/engenheiro-de-campo/tree/main/fontes" target="_blank" rel="noopener">fontes/</a>.</p>
+  <p class="fonte">The excerpts above are from official job listings, checked on Nov 20, 2026. Listings change: always check the official page. Records are in <a href="https://github.com/inematds/engenheiro-de-campo/tree/main/fontes" target="_blank" rel="noopener">fontes/</a>.</p>
+</div></section>
+
+<section id="mercado"><div class="wrap">
+  <span class="chip">Market data</span>
+  <h2>How much they pay and where there are openings, <span class="amb">including in Brazil</span></h2>
+  <p class="sub">It’s not just OpenAI. We checked the official job listings and pages of 11 companies on Nov 20, 2026, and noted what each one publishes. Every figure below links to the listing.</p>
+  <div class="stats">
+    <div class="stat"><b>3 openings in Brazil</b><span>open roles listing Brazil as their location, at three different AI and data companies. Details below.</span></div>
+    <div class="stat"><b>1,000</b><span>forward deployed engineers: Salesforce says on its own blog that it has committed to building this team. <a href="https://www.salesforce.com/blog/forward-deployed-engineer/" target="_blank" rel="noopener">Read the Salesforce blog</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><b>115 of 897</b><span>Databricks’ open roles have “Forward Deployed,” “FDE,” or “Deployment Strategist” in the title: nearly 1 in 8. We counted them on the official job board on Nov 20, 2026. <a href="https://boards-api.greenhouse.io/v1/boards/databricks/jobs" target="_blank" rel="noopener">View the official job board (text list)</a></span></div>
+  </div>
+
+  <div class="prova" style="margin-top:22px">
+    <h3 style="font-size:1.25rem;margin-bottom:.3em">🇧🇷 Open roles listing Brazil as their location</h3>
+    <p class="mut" style="margin:0 0 16px">None of the three publishes a salary. The US dollar amounts below are for roles in the United States and London, not Brazil.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Decagon · remote</h3><p>AI agent deployment engineer (<em>Agent Deployment Engineer</em>), the same job under another name. A <strong>remote role in Brazil</strong>, posted on Nov 18, 2026. Requires fluency in English, Portuguese, and Spanish.</p><p><a href="https://jobs.ashbyhq.com/decagon/5069134e-6af9-4274-9b81-c8e394bd7b6f" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</p></div>
+      <div class="card"><h3>Cognition · São Paulo</h3><p>Forward deployed engineer for Latin America (<em>Forward Deployed Engineer - LATAM</em>) at the company that created Devin. <strong>On-site in São Paulo</strong>; native Portuguese required. Published May 20, 2026.</p><p><a href="https://jobs.ashbyhq.com/cognition/8139c589-494a-449a-b608-b11a689e7b2e" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</p></div>
+      <div class="card"><h3>Databricks · Brazil</h3><p>Senior forward deployed engineer (<em>FDE Brazil</em>) on a listing that is always open to candidates. Location: Brazil; the listing doesn’t say whether the role is remote.</p><p><a href="https://databricks.com/company/careers/open-positions/job?gh_jid=8638732002" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</p></div>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 6px;font-size:1.25rem">What companies publish, <span class="amb">per year</span></h3>
+  <p class="mut" style="margin:0 0 16px;max-width:70ch">Annual salary range listed by the company in the job posting, in US dollars (US$) or pounds (£). “Plus equity” means the company also offers an ownership stake.</p>
+  <div class="grid g3 salarios">
+    <div class="stat"><i class="emp">Anthropic · manager</i><b>US$ 320K–405K</b><span>Manager of forward deployed engineers, New York. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5099753008" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Cohere</i><b>US$ 240K–415K</b><span>Plus equity; remote role within the US. <a href="https://jobs.ashbyhq.com/cohere/8df498e9-aba8-487f-80ba-362b492bad09" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Harvey</i><b>US$ 254.6K–350K</b><span>Plus equity; finance forward deployed engineer, AI for law firms and finance teams. <a href="https://jobs.ashbyhq.com/harvey/43c6e218-ea85-4519-b2fe-dd188ff3234f" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Anthropic · senior</i><b>US$ 280K–320K</b><span><em>Staff</em>-level forward deployed engineer (above senior), New York, San Francisco, or Seattle. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5449229008" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Anthropic · London</i><b>£225K–255K</b><span>Forward deployed engineer in London, paid in pounds. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5423029008" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Ramp</i><b>US$ 189K–330K</b><span>Plus equity; AI solutions forward deployed engineer, based in New York. <a href="https://jobs.ashbyhq.com/ramp/b614563f-3ce6-4dca-b5ba-0e5a6c8bda27" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">OpenAI</i><b>US$ 185K–325K</b><span>Plus equity; <em>Forward Deployed Software Engineer</em>, San Francisco. <a href="https://jobs.ashbyhq.com/openai/00207abc-49b7-465c-a219-f7c1140f8047" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">OpenAI</i><b>US$ 185K–300K</b><span>Plus equity; another opening, <em>Forward Deployed Engineer</em>, San Francisco (the listing says: “$185K – $300K • Offers Equity”). <a href="https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Databricks</i><b>US$ 182K–250K</b><span>AI forward deployed engineer; remote work within the US is allowed. <a href="https://www.databricks.com/company/careers/professional-services-operations/ai-engineer--forward-deployed-engineering-ai-fde-8546367002" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Scale AI</i><b>US$ 180K–225K</b><span>AI agent forward deployed engineer, San Francisco. Another role at the company, for government, pays US$ 184K–292.5K. <a href="https://job-boards.greenhouse.io/scaleai/jobs/4694861005" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat"><i class="emp">Palantir</i><b>US$ 135K–200K</b><span>Base salary, plus equity and bonus, at the company that created this role. <a href="https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0" target="_blank" rel="noopener">View listing</a> · checked on Nov 20, 2026</span></div>
+    <div class="stat imp"><i class="emp">📰 In the news</i><b>more than 1,000%</b><span>growth in forward deployed engineer openings between January and August 2026, compared with the same period in 2025, <strong>according to Fortune magazine, citing data from research firm Lightcast</strong>. This isn’t our count. Article dated Sep 3, 2026. <a href="https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/" target="_blank" rel="noopener">Read Fortune</a> · checked on Nov 20, 2026</span></div>
+  </div>
+  <p class="fonte">Amounts copied from each official job listing on Nov 20, 2026, in the original currency, per year. For some roles, the amount is base salary only; total compensation may be higher with equity and bonuses. Listings open, close, and change ranges: always check the official page. All items, with the exact wording from each listing, are in <a href="https://github.com/inematds/engenheiro-de-campo/blob/main/fontes/mercado.json" target="_blank" rel="noopener">fontes/mercado.json</a>.</p>
 </div></section>
 
 <section id="quem"><div class="wrap">
@@ -317,7 +360,7 @@ Don’t install or change anything on my computer without showing me first and w
   </div>
   <h3 style="margin:30px 0 14px;font-size:1.2rem">🌎 And from outside the US?</h3>
   <div class="grid g3">
-    <div class="card"><h3>1. Remote work for companies abroad</h3><p>Many job openings require you to be in the company’s country. Look for ones marked “remote” and check which countries they accept applicants from. Conversational English is required for speaking with clients, so practice interviewing in English.</p></div>
+    <div class="card"><h3>1. Remote work for companies abroad</h3><p>Many job openings require you to be in the company’s country. Look for ones marked “remote” and check which countries they accept applicants from. Conversational English is required for speaking with clients, so practice interviewing in English.</p><p><a href="#mercado">See the three open roles listing Brazil as their location.</a></p></div>
     <div class="card"><h3>2. Local companies, another title</h3><p>Consulting firms, systems integrators, software companies, and banks hire for the same work under titles like “AI consultant,” “solutions engineer,” or “applied AI specialist.”</p></div>
     <div class="card"><h3>3. Your own business</h3><p>An automation consulting business for small companies is a team of forward deployed engineers. Your proof project becomes your first customer, and the case study becomes your sales material.</p></div>
   </div>

@@ -59,8 +59,8 @@
   .tgl:hover{border-color:var(--amb)}
   .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora;border:0;cursor:pointer;font-size:1rem}
   .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
-  @media(max-width:1360px){nav .links a.opt{display:none}}
-  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:1760px){nav .links a.opt{display:none}}
+  @media(max-width:1220px){nav .links a.sec{display:none}}
   @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
   .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
   .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
@@ -104,6 +104,9 @@
   .stat b{display:block;font:800 clamp(1.7rem,4vw,2.4rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
   body.light .stat b{color:var(--txt)}
   .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .stat .emp{display:block;font:600 .78rem/1.3 Sora,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.45em}
+  .salarios .stat b{font-size:clamp(1.45rem,2.4vw,1.9rem)}
+  .stat.imp{border-style:dashed} .stat.imp b{color:var(--txt)}
   .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
   .metades{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
   .metades .mais{display:flex;align-items:center;justify-content:center;font:800 2rem Sora,sans-serif;color:var(--amb)}
@@ -148,6 +151,7 @@
   <div class="links">
     <a class="sec" href="#oque">Qué es</a>
     <a class="sec opt" href="#potencial">El potencial</a>
+    <a class="sec" href="#mercado">El mercado</a>
     <a class="sec opt" href="#semana">La semana</a>
     <a class="sec" href="#formacao">La formación</a>
     <a class="sec" href="#vagas">Las vacantes</a>
@@ -164,7 +168,7 @@
     <div>
       <span class="chip">Nueva profesión · vacantes oficiales verificadas · kit gratis</span>
       <h1>Nueva profesión: <span class="amb">ingeniero de campo de IA</span></h1>
-      <p class="lead">Las empresas compran IA más rápido de lo que logran hacerla funcionar. Quien se incorpora a una empresa, encuentra el problema real, hace funcionar la IA y lo demuestra con números convirtió eso en una profesión, y las mayores empresas de IA ya están contratando: la oferta oficial de OpenAI ofrece US$ 185 mil a US$ 300 mil al año. Aquí entenderás de qué se trata y te prepararás paso a paso con un kit gratis.</p>
+      <p class="lead">Las empresas compran IA más rápido de lo que logran hacerla funcionar. Quien se incorpora a una empresa, encuentra el problema real, hace funcionar la IA y lo demuestra con números convirtió eso en una profesión, y las mayores empresas de IA ya están contratando: las vacantes oficiales publican salarios de US$ 135 mil a US$ 415 mil al año, y ya hay una vacante abierta con Brasil en la ubicación. Aquí entenderás de qué se trata y te prepararás paso a paso con un kit gratis.</p>
       <div class="cta">
         <a class="btn" href="#oque">Qué es esta profesión</a>
         <a class="btn ghost" href="#formacao">Cómo prepararte</a>
@@ -209,9 +213,9 @@
 <section id="potencial"><div class="wrap">
   <span class="chip">El potencial</span>
   <h2>Las mayores empresas de IA <span class="amb">ya están contratando</span></h2>
-  <p class="sub">No es una tendencia de redes sociales: son vacantes abiertas, con el nombre de la profesión en el título, en los sitios oficiales de las empresas. Las verificamos el 20/11/2026.</p>
+  <p class="sub">No es una tendencia de redes sociales: son vacantes abiertas que incluyen el nombre de la profesión en el título y aparecen en las páginas oficiales de las empresas. Las verificamos el 20/11/2026. Cuánto pagan y dónde hay vacantes, incluso en Brasil, está más abajo, en Datos del mercado.</p>
   <div class="stats">
-    <div class="stat"><b>$185K – $300K</b><span>rango publicado en la vacante oficial de <em>Forward Deployed Engineer</em> de OpenAI en San Francisco, en dólares por año, más participación en acciones.</span></div>
+    <div class="stat"><b>Equipo desde cero</b><span>la vacante de gerente de ingenieros de campo de Anthropic busca a alguien que sea el «líder fundador» de un equipo que definirá cómo las empresas adoptan la IA.</span></div>
     <div class="stat"><b>OpenAI y Anthropic</b><span>ambas tenían varias vacantes con «Forward Deployed» en el título, en varias ciudades, el día de la verificación.</span></div>
     <div class="stat"><b>Exfundadores bienvenidos</b><span>la vacante de Anthropic dice que también anima a los exfundadores técnicos a postularse. No es solo para quienes tienen una trayectoria lineal.</span></div>
   </div>
@@ -219,7 +223,46 @@
     <div class="card"><h3>📄 Lo que pide la vacante de Anthropic</h3><blockquote>"Deliver technical artifacts for customers like MCP servers, sub-agents, and agent skills that will be used in production workflows."</blockquote><p style="margin-top:.6em">En otras palabras: entregar al cliente servidores MCP (la forma estándar de darle herramientas a la IA), subagentes y skills (recetas que sigue la IA) que se usarán en la práctica. Es lo mismo que mucha gente ya hace en Claude Code, pero dentro de una empresa y con consecuencias reales.</p><blockquote>"Identify and codify repeatable deployment patterns"</blockquote><p style="margin-top:.6em">Tomar lo que funcionó una vez y convertirlo en una receta repetible.</p></div>
     <div class="card"><h3>🎯 Lo que espera el puesto sénior</h3><blockquote>"walk into a discovery conversation with only a business problem and leave with a defensible technical strategy"</blockquote><p style="margin-top:.6em">Llegar solo con un problema de negocio y salir con una estrategia técnica sólida. Eso es exactamente lo que evalúa la entrevista y lo que practica el kit.</p><p><a href="https://job-boards.greenhouse.io/anthropic/jobs/5449229008" target="_blank" rel="noopener">Ver la vacante sénior</a> · <a href="https://job-boards.greenhouse.io/anthropic/jobs/5391021008" target="_blank" rel="noopener">ver la vacante de FDE</a> · <a href="https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688" target="_blank" rel="noopener">ver la vacante de OpenAI</a></p></div>
   </div>
-  <p class="fonte">El valor de arriba es el texto de la vacante de OpenAI en San Francisco («$185K – $300K • Offers Equity»), verificado el 20/11/2026; las vacantes de OpenAI fuera de Estados Unidos no muestran un rango. Las vacantes cambian: consulta siempre la página oficial. Registro en <a href="https://github.com/inematds/engenheiro-de-campo/tree/main/fontes" target="_blank" rel="noopener">fontes/</a>.</p>
+  <p class="fonte">Los fragmentos anteriores son de vacantes oficiales, verificadas el 20/11/2026. Las vacantes cambian: consulta siempre la página oficial. Registro en <a href="https://github.com/inematds/engenheiro-de-campo/tree/main/fontes" target="_blank" rel="noopener">fontes/</a>.</p>
+</div></section>
+
+<section id="mercado"><div class="wrap">
+  <span class="chip">Datos del mercado</span>
+  <h2>Cuánto pagan y dónde hay vacantes, <span class="amb">incluso en Brasil</span></h2>
+  <p class="sub">No es solo OpenAI. Verificamos las vacantes y las páginas oficiales de 11 empresas el 20/11/2026 y anotamos lo que publica cada una. Cada cifra de abajo incluye el enlace a la vacante.</p>
+  <div class="stats">
+    <div class="stat"><b>3 vacantes en Brasil</b><span>abiertas con Brasil en la ubicación, en tres empresas distintas de IA y datos. Más detalles abajo.</span></div>
+    <div class="stat"><b>1.000</b><span>ingenieros de campo: es el equipo que Salesforce dice en su propio blog que se comprometió a formar. <a href="https://www.salesforce.com/blog/forward-deployed-engineer/" target="_blank" rel="noopener">Leer en el blog de Salesforce</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><b>115 de 897</b><span>vacantes abiertas de Databricks incluyen «Forward Deployed», «FDE» o «Deployment Strategist» en el título: casi 1 de cada 8. Las contamos en la página oficial el 20/11/2026. <a href="https://boards-api.greenhouse.io/v1/boards/databricks/jobs" target="_blank" rel="noopener">Ver la página oficial (lista en texto)</a></span></div>
+  </div>
+
+  <div class="prova" style="margin-top:22px">
+    <h3 style="font-size:1.25rem;margin-bottom:.3em">🇧🇷 Vacantes abiertas con Brasil en la ubicación</h3>
+    <p class="mut" style="margin:0 0 16px">Ninguna de las tres publica el salario. Las cifras en dólares que aparecen más abajo corresponden a vacantes en Estados Unidos y Londres, no en Brasil.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Decagon · remota</h3><p>Ingeniero de implementación de agentes de IA (<em>Agent Deployment Engineer</em>), el mismo trabajo con otro nombre. Vacante <strong>remota, en Brasil</strong>, publicada el 18/11/2026. Pide dominio fluido de inglés, portugués y español.</p><p><a href="https://jobs.ashbyhq.com/decagon/5069134e-6af9-4274-9b81-c8e394bd7b6f" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</p></div>
+      <div class="card"><h3>Cognition · São Paulo</h3><p>Ingeniero de campo para América Latina (<em>Forward Deployed Engineer - LATAM</em>), de la empresa que creó Devin. <strong>Presencial en São Paulo</strong>, exige portugués nativo. Publicada el 20/05/2026.</p><p><a href="https://jobs.ashbyhq.com/cognition/8139c589-494a-449a-b608-b11a689e7b2e" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</p></div>
+      <div class="card"><h3>Databricks · Brasil</h3><p>Ingeniero de campo sénior (<em>FDE Brazil</em>), en una vacante que permanece abierta para recibir postulaciones. Ubicación: Brasil; la vacante no especifica si es remota.</p><p><a href="https://databricks.com/company/careers/open-positions/job?gh_jid=8638732002" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</p></div>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 6px;font-size:1.25rem">Cuánto publican las empresas, <span class="amb">al año</span></h3>
+  <p class="mut" style="margin:0 0 16px;max-width:70ch">Rango salarial anual que la propia empresa indica en la vacante, en dólares estadounidenses (US$) o libras esterlinas (£). «Más acciones» significa que la empresa también paga con participación accionaria.</p>
+  <div class="grid g3 salarios">
+    <div class="stat"><i class="emp">Anthropic · gerente</i><b>US$ 320–405 mil</b><span>gerente de ingenieros de campo, New York. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5099753008" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Cohere</i><b>US$ 240–415 mil</b><span>más acciones; vacante remota dentro de Estados Unidos. <a href="https://jobs.ashbyhq.com/cohere/8df498e9-aba8-487f-80ba-362b492bad09" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Harvey</i><b>US$ 254,6–350 mil</b><span>más acciones; ingeniero de campo de finanzas, IA para estudios jurídicos y finanzas. <a href="https://jobs.ashbyhq.com/harvey/43c6e218-ea85-4519-b2fe-dd188ff3234f" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Anthropic · sénior</i><b>US$ 280–320 mil</b><span>ingeniero de campo de nivel <em>Staff</em> (por encima de sénior), New York, San Francisco o Seattle. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5449229008" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Anthropic · Londres</i><b>£225–255 mil</b><span>ingeniero de campo en Londres, en libras. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5423029008" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Ramp</i><b>US$ 189–330 mil</b><span>más acciones; ingeniero de campo de soluciones de IA, con sede en New York. <a href="https://jobs.ashbyhq.com/ramp/b614563f-3ce6-4dca-b5ba-0e5a6c8bda27" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">OpenAI</i><b>US$ 185–325 mil</b><span>más acciones; <em>Forward Deployed Software Engineer</em>, San Francisco. <a href="https://jobs.ashbyhq.com/openai/00207abc-49b7-465c-a219-f7c1140f8047" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">OpenAI</i><b>US$ 185–300 mil</b><span>más acciones; otra vacante, <em>Forward Deployed Engineer</em>, San Francisco (el texto de la vacante: «$185K – $300K • Offers Equity»). <a href="https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Databricks</i><b>US$ 182–250 mil</b><span>ingeniero de campo de IA; acepta trabajo remoto dentro de Estados Unidos. <a href="https://www.databricks.com/company/careers/professional-services-operations/ai-engineer--forward-deployed-engineering-ai-fde-8546367002" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Scale AI</i><b>US$ 180–225 mil</b><span>ingeniero de campo de agentes de IA, San Francisco. Otra vacante de la empresa, para el gobierno, ofrece de US$ 184 mil a US$ 292,5 mil. <a href="https://job-boards.greenhouse.io/scaleai/jobs/4694861005" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat"><i class="emp">Palantir</i><b>US$ 135–200 mil</b><span>salario fijo, más acciones y bonificaciones, en la empresa que creó esta función. <a href="https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0" target="_blank" rel="noopener">Ver la vacante</a> · verificado el 20/11/2026</span></div>
+    <div class="stat imp"><i class="emp">📰 En la prensa</i><b>más de 1.000%</b><span>de crecimiento en las vacantes de ingeniero de campo entre enero y agosto de 2026, en comparación con el mismo período de 2025, <strong>según la revista Fortune, con datos de la empresa de investigación Lightcast</strong>. No es un recuento nuestro. Artículo del 03/09/2026. <a href="https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/" target="_blank" rel="noopener">Leer en Fortune</a> · verificado el 20/11/2026</span></div>
+  </div>
+  <p class="fonte">Cifras copiadas de la página de cada vacante oficial el 20/11/2026, en la moneda original, por año. En algunas, la cifra corresponde solo al salario fijo y el total puede ser mayor con acciones y bonificaciones. Las vacantes se abren, se cierran y cambian de rango: consulta siempre la página oficial. Todos los datos, con el texto exacto de cada vacante, están en <a href="https://github.com/inematds/engenheiro-de-campo/blob/main/fontes/mercado.json" target="_blank" rel="noopener">fontes/mercado.json</a>.</p>
 </div></section>
 
 <section id="quem"><div class="wrap">
@@ -317,7 +360,7 @@ No instales ni cambies nada en mi computadora sin mostrármelo antes y esperar a
   </div>
   <h3 style="margin:30px 0 14px;font-size:1.2rem">🌎 ¿Y desde América Latina?</h3>
   <div class="grid g3">
-    <div class="card"><h3>1. Trabajo remoto para el exterior</h3><p>Muchas vacantes exigen estar en el país de la empresa. Busca las que indiquen “remote” y verifica desde qué países aceptan candidatos. Es obligatorio tener un nivel de inglés conversacional para hablar con clientes, así que practica la entrevista en inglés.</p></div>
+    <div class="card"><h3>1. Trabajo remoto para el exterior</h3><p>Muchas vacantes exigen estar en el país de la empresa. Busca las que indiquen “remote” y verifica desde qué países aceptan candidatos. Es obligatorio tener un nivel de inglés conversacional para hablar con clientes, así que practica la entrevista en inglés.</p><p><a href="#mercado">Consulta las tres vacantes abiertas con Brasil en la ubicación.</a></p></div>
     <div class="card"><h3>2. Empresas locales, otro nombre</h3><p>Consultoras, integradoras, empresas de software y bancos contratan el mismo trabajo como «consultor de IA», «ingeniero de soluciones» o «especialista en IA aplicada».</p></div>
     <div class="card"><h3>3. Tu propio negocio</h3><p>Una consultora de automatización para pequeñas empresas es un equipo de ingenieros de campo. El proyecto de prueba se convierte en tu primer cliente y el caso de estudio, en tu material de venta.</p></div>
   </div>

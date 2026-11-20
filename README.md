@@ -35,6 +35,7 @@ As empresas compram IA mais rápido do que conseguem fazê-la funcionar nos sist
 
 - **OpenAI**, vaga *Forward Deployed Engineer (FDE) - SF*: faixa publicada "$185K – $300K • Offers Equity". [Vaga](https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688) · registro em [`fontes/vaga-openai.json`](fontes/vaga-openai.json).
 - **Anthropic**, vagas *Forward Deployed Engineer* e *Staff Forward Deployed Engineer*: entregar "MCP servers, sub-agents, and agent skills", "identify and codify repeatable deployment patterns", chegar "with only a business problem and leave with a defensible technical strategy". [Vaga FDE](https://job-boards.greenhouse.io/anthropic/jobs/5391021008) · [vaga Staff](https://job-boards.greenhouse.io/anthropic/jobs/5449229008) · registro em [`fontes/vagas-anthropic.json`](fontes/vagas-anthropic.json).
+- **Mercado, além da OpenAI:** as vagas oficiais de engenheiro de campo publicam de US$ 135 mil (Palantir) a US$ 415 mil (Cohere) por ano, com Anthropic, Harvey, Ramp, Databricks e Scale AI no meio. Há vagas abertas com o Brasil no endereço: Decagon (remota, pede português, espanhol e inglês), Cognition (presencial em São Paulo) e Databricks (FDE Brazil). A Salesforce diz, no próprio blog, que vai montar um time de 1.000 engenheiros de campo. Os 23 itens, com o texto exato, o link e o tipo de cada fonte (vaga oficial, blog oficial ou imprensa), estão em [`fontes/mercado.json`](fontes/mercado.json).
 
 Vagas mudam: confira sempre a página oficial.
 
@@ -124,7 +125,7 @@ tests/                  testes automáticos
 python3 -m unittest discover -s tests -v
 ```
 
-28 testes cobrem: o teste-metade (12 perguntas, 6 por metade, os 3 resultados alcançáveis, empate dentro da margem, respostas inválidas, a página com as mesmas perguntas do JSON), o conferidor de escopo (exemplo aprovado, exemplo e modelo reprovados, sem número, um número só, sem aspas, seção faltando, títulos em EN/ES, códigos de saída) e o eval (casos bem formados, as notas medidas 18/30, 30/30 e 4/10, a comparação 12 consertados e 0 quebrados, automação que explode conta como falha, código de saída do `--minimo`, o modelo do agente não roda sem configurar) e a política de números: só a faixa da vaga oficial da OpenAI, igual à registrada em `fontes/`, e nenhuma porcentagem sem fonte nos textos.
+31 testes cobrem: o teste-metade (12 perguntas, 6 por metade, os 3 resultados alcançáveis, empate dentro da margem, respostas inválidas, a página com as mesmas perguntas do JSON), o conferidor de escopo (exemplo aprovado, exemplo e modelo reprovados, sem número, um número só, sem aspas, seção faltando, títulos em EN/ES, códigos de saída) e o eval (casos bem formados, as notas medidas 18/30, 30/30 e 4/10, a comparação 12 consertados e 0 quebrados, automação que explode conta como falha, código de saída do `--minimo`, o modelo do agente não roda sem configurar) e a política de números: só valores que estão no texto de uma vaga ou blog oficial registrado em `fontes/` (a faixa da OpenAI igual à registrada), a única porcentagem de imprensa sempre com a fonte (Fortune, com dados da Lightcast) ao lado, e os links da seção de mercado iguais nos três idiomas e todos registrados em `fontes/`.
 
 ## Licença
 

@@ -242,10 +242,29 @@ class Eval(unittest.TestCase):
 
 
 class SemNumerosProibidos(unittest.TestCase):
-    """Política do kit: só número com fonte oficial registrada em fontes/ (lista do que é permitido)."""
+    """Política do kit: só número com fonte oficial registrada em fontes/ (lista do que é permitido).
 
-    DINHEIRO_OK = {"$185K", "$300K", "US$ 185", "US$ 300"}   # fontes/vaga-openai.json
-    PORCENTO_OK = {"90%"}                                     # nota mínima de exemplo do runner (LEIA.md)
+    Dinheiro: só valores que aparecem no texto literal de uma vaga/blog oficial em fontes/mercado.json
+    ou fontes/vaga-openai.json (em milhares). Porcentagem: 90% (exemplo do runner) e o "mais de 1000%"
+    da imprensa (Fortune/Lightcast), que só pode aparecer com a fonte escrita ao lado.
+    """
+
+    PORCENTO_OK = {90, 1000}   # 90: LEIA.md do runner · 1000: Fortune com dados da Lightcast (imprensa)
+
+    @classmethod
+    def setUpClass(cls):
+        merc = json.loads((RAIZ / "fontes" / "mercado.json").read_text(encoding="utf-8"))
+        vaga = json.loads((RAIZ / "fontes" / "vaga-openai.json").read_text(encoding="utf-8"))
+        literais = [i["dado_literal"] for i in merc["itens"] if i["tipo"].startswith(("vaga oficial", "blog oficial"))]
+        literais.append(vaga["faixa_salarial_texto_literal"])
+        cls.DINHEIRO_OK = set()
+        for t in literais:
+            for n in re.findall(r"(?:\$|£|GBP|USD)\s?(\d[\d,.]*)|(\d[\d,.]*)\s?(?:K|USD|GBP)", t):
+                v = float((n[0] or n[1]).rstrip(".,").replace(",", ""))
+                cls.DINHEIRO_OK.add(int(v / 1000) if v >= 1000 else int(v))
+            for n in re.findall(r"\b\d{6}\b", t):   # faixa crua do Greenhouse, ex.: 180000-225000 USD
+                cls.DINHEIRO_OK.add(int(n) // 1000)
+        cls.URLS_FONTES = {i["url"] for i in merc["itens"]} | {vaga["url"]}
 
     def textos(self):
         for p in RAIZ.rglob("*"):
@@ -255,15 +274,34 @@ class SemNumerosProibidos(unittest.TestCase):
                 txt = re.sub(r"<style.*?</style>|<script.*?</script>|style=\"[^\"]*\"", "", txt, flags=re.S)
                 yield p, txt
 
-    def test_dinheiro_so_da_vaga_oficial(self):
+    def test_dinheiro_so_das_fontes_oficiais(self):
         for arq, txt in self.textos():
-            for m in re.findall(r"US\$ ?\d+|\$\d+K?", txt):
-                self.assertIn(m, self.DINHEIRO_OK, f"{arq.relative_to(RAIZ)}: valor sem fonte {m}")
+            for m in re.findall(r"(?:US\$|\$|£) ?(\d+)", txt):
+                self.assertIn(int(m), self.DINHEIRO_OK, f"{arq.relative_to(RAIZ)}: valor sem fonte {m}")
 
     def test_sem_porcentagem_em_texto(self):
         for arq, txt in self.textos():
-            for m in re.findall(r"\d+(?:[.,]\d+)?\s?%", txt):
-                self.assertIn(m, self.PORCENTO_OK, f"{arq.relative_to(RAIZ)}: porcentagem sem fonte {m}")
+            for m in re.findall(r"(\d+(?:[.,]\d+)?)\s?%", txt):
+                n = int(m.replace(".", "").replace(",", ""))
+                self.assertIn(n, self.PORCENTO_OK, f"{arq.relative_to(RAIZ)}: porcentagem sem fonte {m}%")
+                if n == 1000:
+                    self.assertIn("Fortune", txt, f"{arq.relative_to(RAIZ)}: 1000% sem a fonte (Fortune)")
+                    self.assertIn("Lightcast", txt, f"{arq.relative_to(RAIZ)}: 1000% sem a fonte (Lightcast)")
+
+    def test_mercado_links_das_fontes_e_iguais_nos_3_idiomas(self):
+        hrefs = {}
+        for lang in ("", "en/", "es/"):
+            html = (RAIZ / "guia" / lang / "index.html").read_text(encoding="utf-8")
+            m = re.search(r'<section id="mercado">(.*?)</section>', html, re.S)
+            self.assertIsNotNone(m, f"guia/{lang}: sem a seção #mercado")
+            links = set(re.findall(r'href="(https?://[^"]+)"', m.group(1)))
+            hrefs[lang] = links
+            for u in links:
+                if "github.com/inematds" not in u:
+                    self.assertIn(u, self.URLS_FONTES, f"guia/{lang}: link fora de fontes/ {u}")
+            self.assertGreaterEqual(m.group(1).count("20/11/2026") + m.group(1).count("Nov 20, 2026"), 12)
+        self.assertEqual(hrefs[""], hrefs["en/"])
+        self.assertEqual(hrefs[""], hrefs["es/"])
 
     def test_faixa_bate_com_a_fonte(self):
         fonte = json.loads((RAIZ / "fontes" / "vaga-openai.json").read_text(encoding="utf-8"))

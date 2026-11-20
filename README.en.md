@@ -35,6 +35,7 @@ Companies buy AI faster than they can make it work in their messy systems. Inste
 
 - **OpenAI**, *Forward Deployed Engineer (FDE) - SF* listing: published range "$185K – $300K • Offers Equity". [Job listing](https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688) · record in [`fontes/vaga-openai.json`](fontes/vaga-openai.json) (in Portuguese).
 - **Anthropic**, *Forward Deployed Engineer* and *Staff Forward Deployed Engineer* listings: deliver "MCP servers, sub-agents, and agent skills", "identify and codify repeatable deployment patterns", arrive "with only a business problem and leave with a defensible technical strategy". [FDE listing](https://job-boards.greenhouse.io/anthropic/jobs/5391021008) · [Staff listing](https://job-boards.greenhouse.io/anthropic/jobs/5449229008) · record in [`fontes/vagas-anthropic.json`](fontes/vagas-anthropic.json) (in Portuguese).
+- **The market beyond OpenAI:** official forward deployed engineer job postings list annual salaries ranging from US$ 135K (Palantir) to US$ 415K (Cohere), with Anthropic, Harvey, Ramp, Databricks, and Scale AI in between. There are open roles with Brazil in the location: Decagon (remote, requires Portuguese, Spanish, and English), Cognition (on-site in São Paulo), and Databricks (FDE Brazil). Salesforce says on its own blog that it will build a team of 1,000 forward deployed engineers. The 23 items, with the exact wording, link, and source type (official job posting, official blog, or press), are in [`fontes/mercado.json`](fontes/mercado.json) (in Portuguese).
 
 Job listings change: always check the official page.
 
@@ -124,7 +125,7 @@ tests/                   automated tests
 python3 -m unittest discover -s tests -v
 ```
 
-28 tests cover: the which-half test (12 questions, 6 per half, all 3 possible results, tie within margin, invalid answers, page with same questions as JSON), the scope validator (approved example, rejected example and template, no number, only one number, no quotes, missing section, EN/ES headings, exit codes), and the eval (well-formed cases, measured scores 18/30, 30/30, and 4/10, comparison with 12 fixed and 0 broken, automation that crashes counts as a failure, `--minimo` exit code, agent model does not run unless configured), and the numbers policy: only the official OpenAI listing range, matching the one recorded in `fontes/`, and no unsourced percentages in the text.
+31 tests cover: the which-half test (12 questions, 6 per half, all 3 possible results, tie within margin, invalid answers, page with same questions as JSON), the scope validator (approved example, rejected example and template, no number, only one number, no quotes, missing section, EN/ES headings, exit codes), and the eval (well-formed cases, measured scores 18/30, 30/30, and 4/10, comparison with 12 fixed and 0 broken, automation that crashes counts as a failure, `--minimo` exit code, agent model does not run unless configured), and the numbers policy: only figures that appear in the text of a job posting or official blog recorded in `fontes/` (the OpenAI range must match the recorded one), the only press percentage must always have its source (Fortune, with Lightcast data) alongside it, and the market section links must be identical in all three languages and all recorded in `fontes/`.
 
 ## License
 
